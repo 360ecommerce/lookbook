@@ -1,0 +1,13 @@
+{
+    "name": "gizburdt/lookbooq",
+    "type": "wordpress-plugin",
+    "description": "Image overlay pointers",
+    "authors": [
+        {
+            "name": "Gijs Jorissen",
+            "email": "lol@gizburdt.com"
+        }
+    ],
+    "require": {
+    }
+}
