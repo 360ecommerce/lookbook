@@ -49,6 +49,10 @@ class Lookbooq
 
 	function includes()
 	{
+		// Vendor
+		include( LOOKBOOQ_DIR . 'vendor/gizburdt/cuztom/cuztom.php' );
+
+		// Lookbooq
 		include( LOOKBOOQ_DIR . 'classes/class-content-types.php' );
 		include( LOOKBOOQ_DIR . 'classes/class-shortcodes.php' );
 	}
