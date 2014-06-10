@@ -9,5 +9,17 @@
         }
     ],
     "require": {
-    }
+        "gizburdt/cuztom":  "2.9.8"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url":  "http://wpackagist.org"
+        },
+        {
+            "name": "gizburdt/cuztom",
+            "type": "vcs",
+            "url": "https://github.com/gizburdt/wp-cuztom.git"
+        }
+    ]
 }
