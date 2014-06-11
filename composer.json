@@ -9,6 +9,7 @@
         }
     ],
     "require": {
+        "gizburdt/cuztom":  "2.9.9"
     },
     "repositories": [
         {
