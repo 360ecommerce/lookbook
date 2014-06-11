@@ -7,18 +7,5 @@
             "name": "Gijs Jorissen",
             "email": "lol@gizburdt.com"
         }
-    ],
-    "require": {
-    },
-    "repositories": [
-        {
-            "type": "composer",
-            "url":  "http://wpackagist.org"
-        },
-        {
-            "name": "gizburdt/cuztom",
-            "type": "vcs",
-            "url": "https://github.com/gizburdt/wp-cuztom.git"
-        }
     ]
 }
