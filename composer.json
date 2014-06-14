@@ -8,8 +8,11 @@
             "email": "lol@gizburdt.com"
         }
     ],
-    "require": {
-        "gizburdt/cuztom":  "2.9.9"
+    "config": {
+        "vendor-dir": "lib"
+    },
+    "require-dev": {
+        "gizburdt/cuztom":  "3.0"
     },
     "repositories": [
         {

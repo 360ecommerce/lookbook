@@ -50,7 +50,7 @@ class Lookbooq
 	function includes()
 	{
 		// Vendor
-		include( LOOKBOOQ_DIR . 'vendor/gizburdt/cuztom/cuztom.php' );
+		include( LOOKBOOQ_DIR . 'lib/gizburdt/cuztom/src/cuztom.php' );
 
 		// Lookbooq
 		include( LOOKBOOQ_DIR . 'classes/class-content-types.php' );
