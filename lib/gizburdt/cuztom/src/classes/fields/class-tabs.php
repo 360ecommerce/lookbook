@@ -2,7 +2,7 @@
 
 if( ! defined( 'ABSPATH' ) ) exit;
 
-class Cuztom_Tabs extends Cuztom_Field
+class Lookbooq_Cuztom_Tabs extends Lookbooq_Cuztom_Field
 {
 	var $tabs = array();
 
@@ -87,7 +87,7 @@ class Cuztom_Tabs extends Cuztom_Field
 	{
 		foreach( $data as $title => $field ) {
 			$args	= array_merge( array( 'title' => $title, 'meta_type' => $this->meta_type, 'object' => $this->object ) );
-			$tab 	= new Cuztom_Tab( $args );
+			$tab 	= new Lookbooq_Cuztom_Tab( $args );
 			$tab->build( $field['fields'], $value );
 
 			$this->tabs[$title] = $tab;

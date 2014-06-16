@@ -2,7 +2,7 @@
 
 if( ! defined( 'ABSPATH' ) ) exit;
 
-class Cuztom_Field_Checkbox extends Cuztom_Field
+class Lookbooq_Cuztom_Field_Checkbox extends Lookbooq_Cuztom_Field
 {
 	var $_supports_bundle		= true;
 	var $css_classes			= array( 'cuztom-input' );

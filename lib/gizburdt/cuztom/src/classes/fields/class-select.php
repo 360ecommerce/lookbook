@@ -2,7 +2,7 @@
 
 if( ! defined( 'ABSPATH' ) ) exit;
 
-class Cuztom_Field_Select extends Cuztom_Field
+class Lookbooq_Cuztom_Field_Select extends Lookbooq_Cuztom_Field
 {
 	var $_supports_repeatable 	= true;
 	var $_supports_ajax			= true;
@@ -28,7 +28,7 @@ class Cuztom_Field_Select extends Cuztom_Field
 			{
 				foreach( $this->options as $slug => $name )
 				{
-					$output .= '<option value="' . $slug . '" ' . ( ! empty( $this->value ) ? selected( $slug, $this->value, false ) : selected( $this->default_value, $slug, false ) ) . '>' . Cuztom::beautify( $name ) . '</option>';
+					$output .= '<option value="' . $slug . '" ' . ( ! empty( $this->value ) ? selected( $slug, $this->value, false ) : selected( $this->default_value, $slug, false ) ) . '>' . Lookbooq_Cuztom::beautify( $name ) . '</option>';
 				}
 			}
 		$output .= '</select>';

@@ -8,7 +8,7 @@ if( ! defined( 'ABSPATH' ) ) exit;
  * @author  Gijs Jorissen
  * @since  	2.3
  */
-class Cuztom_Notice
+class Lookbooq_Cuztom_Notice
 {
 	var $notice;
 	var $type;

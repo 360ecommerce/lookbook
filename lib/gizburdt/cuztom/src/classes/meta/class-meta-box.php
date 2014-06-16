@@ -9,7 +9,7 @@ if( ! defined( 'ABSPATH' ) ) exit;
  * @since 	0.2
  *
  */
-class Cuztom_Meta_Box extends Cuztom_Meta
+class Lookbooq_Cuztom_Meta_Box extends Lookbooq_Cuztom_Meta
 {
 	var $context	= 'normal';
 	var $priority	= 'default';

@@ -9,7 +9,7 @@ if( ! defined( 'ABSPATH' ) ) exit;
  * @since 	1.5
  *
  */
-class Cuztom_User_Meta extends Cuztom_Meta
+class Lookbooq_Cuztom_User_Meta extends Lookbooq_Cuztom_Meta
 {
 	var $locations;
 
@@ -35,7 +35,7 @@ class Cuztom_User_Meta extends Cuztom_Meta
 		$this->locations 	= $locations;
 
 		// Chack if the class, function or method exist, otherwise use cuztom callback
-		if( Cuztom::is_wp_callback( $data ) )
+		if( Lookbooq_Cuztom::is_wp_callback( $data ) )
 		{
 			$this->callback = $data;
 		}

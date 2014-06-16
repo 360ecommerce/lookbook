@@ -11,7 +11,7 @@ if( ! class_exists( 'Cuztom' ) ) :
  * @since  	2.3
  * 
  */
-class Cuztom
+class Lookbooq_Cuztom
 {
 	private static $version;
 	private static $url;
@@ -38,7 +38,7 @@ class Cuztom
 	public static function run()
 	{
 		if ( ! isset( self::$instance ) ) {
-			self::$instance = new Cuztom;
+			self::$instance = new Lookbooq_Cuztom;
 			self::$instance->setup();
 			self::$instance->includes();
 			self::$instance->execute();
@@ -134,7 +134,7 @@ class Cuztom
 		);
 
 		// Setup ajax
-		self::$ajax = new Cuztom_Ajax;
+		self::$ajax = new Lookbooq_Cuztom_Ajax;
 	}
 
 	/**
@@ -399,4 +399,4 @@ class Cuztom
 
 endif; // End class_exists check
 
-Cuztom::run();
+Lookbooq_Cuztom::run();

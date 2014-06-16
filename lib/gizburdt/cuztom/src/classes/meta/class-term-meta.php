@@ -9,7 +9,7 @@ if( ! defined( 'ABSPATH' ) ) exit;
  * @since 	2.5
  *
  */
-class Cuztom_Term_Meta extends Cuztom_Meta
+class Lookbooq_Cuztom_Term_Meta extends Lookbooq_Cuztom_Meta
 {
 	var $meta_type 		= 'term';
 	var $taxonomies;
@@ -144,7 +144,7 @@ class Cuztom_Term_Meta extends Cuztom_Meta
 		{
 			$taxonomy 	= $screen->taxonomy;
 
-			$meta = get_cuztom_term_meta( $term_id, $taxonomy, $column );
+			$meta = get_lookbooq_cuztom_term_meta( $term_id, $taxonomy, $column );
 			
 			foreach( $this->fields as $id => $field )
 			{
@@ -156,7 +156,7 @@ class Cuztom_Term_Meta extends Cuztom_Meta
 					}
 					else
 					{
-						if( $field instanceof Cuztom_Field_Image )
+						if( $field instanceof Lookbooq_Cuztom_Field_Image )
 							echo wp_get_attachment_image( $meta, array( 100, 100 ) );
 						else
 							echo $meta;

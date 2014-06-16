@@ -2,7 +2,7 @@
 
 if( ! defined( 'ABSPATH' ) ) exit;
 
-class Cuztom_Field_Hidden extends Cuztom_Field
+class Lookbooq_Cuztom_Field_Hidden extends Lookbooq_Cuztom_Field
 {
 	var $css_classes			= array( 'cuztom-input' );
 

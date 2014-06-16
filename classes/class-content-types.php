@@ -93,7 +93,18 @@ class Lookbooq_Content_Types
 
 	function add_meta()
 	{
-		$piqture = new Cuztom_Post_Type( 'piqture' );
+		$piqture = new Lookbooq_Cuztom_Post_Type( 'piqture' );
+		$piqture->add_meta_box( 'data', array(
+			'title' => __('Data', 'lookbooq'),
+			'fields' => array(
+				array(
+					'id' 			=> '_image',
+					'label'			=> __('Image', 'lookbooq'),
+					'description'	=> __('Image used as background', 'lookbooq'),
+					'type'			=> 'image'
+				),
+			)
+		) );
 
 		$piqture->add_meta_box( 'pointers', array(
 			'title' => __('Pointers', 'lookbooq'),

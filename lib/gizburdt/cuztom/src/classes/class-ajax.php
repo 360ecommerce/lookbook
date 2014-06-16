@@ -8,7 +8,7 @@ if( ! defined( 'ABSPATH' ) ) exit;
  * @author  Gijs Jorissen
  * @since  	3.0
  */
-class Cuztom_Ajax
+class Lookbooq_Cuztom_Ajax
 {
 	/**
 	 * Add hooks

@@ -11,8 +11,8 @@
     "config": {
         "vendor-dir": "lib"
     },
-    "require-dev": {
-        "gizburdt/cuztom":  "3.0"
+    "require": {
+        "gizburdt/cuztom":  "3.0.x-dev"
     },
     "repositories": [
         {
@@ -22,7 +22,7 @@
         {
             "name": "gizburdt/cuztom",
             "type": "vcs",
-            "url": "https://github.com/gizburdt/wp-cuztom.git"
+            "url": "https://github.com/gizburdt/wp-cuztom"
         }
     ]
 }

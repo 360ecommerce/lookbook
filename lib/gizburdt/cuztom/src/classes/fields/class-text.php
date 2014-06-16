@@ -2,7 +2,7 @@
 
 if( ! defined( 'ABSPATH' ) ) exit;
 
-class Cuztom_Field_Text extends Cuztom_Field
+class Lookbooq_Cuztom_Field_Text extends Lookbooq_Cuztom_Field
 {
 	var $_supports_repeatable 	= true;
 	var $_supports_bundle		= true;

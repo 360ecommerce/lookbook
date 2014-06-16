@@ -9,7 +9,7 @@ if( ! defined( 'ABSPATH' ) ) exit;
  * @since 	0.1
  *
  */
-class Cuztom_Post_Type
+class Lookbooq_Cuztom_Post_Type
 {
 	var $name;
 	var $title;
@@ -20,7 +20,7 @@ class Cuztom_Post_Type
 	var $remove_features;
 	
 	/**
-	 * Construct a new Cuztom Post Type
+	 * Construct a new Lookbooq_Cuztom Post Type
 	 *
 	 * @param 	string|array 	$name
 	 * @param 	array 			$args
@@ -35,13 +35,13 @@ class Cuztom_Post_Type
 		// Build name
 		if( ! empty( $name ) ) {
 			if( is_array( $name ) ) {
-				$this->name		= Cuztom::uglify( $name[0] );
-				$this->title	= Cuztom::beautify( $name[0] );
-				$this->plural 	= Cuztom::beautify( $name[1] );
+				$this->name		= Lookbooq_Cuztom::uglify( $name[0] );
+				$this->title	= Lookbooq_Cuztom::beautify( $name[0] );
+				$this->plural 	= Lookbooq_Cuztom::beautify( $name[1] );
 			} else {
-				$this->name		= Cuztom::uglify( $name );
-				$this->title	= Cuztom::beautify( $name );
-				$this->plural 	= Cuztom::pluralize( Cuztom::beautify( $name ) );
+				$this->name		= Lookbooq_Cuztom::uglify( $name );
+				$this->title	= Lookbooq_Cuztom::beautify( $name );
+				$this->plural 	= Lookbooq_Cuztom::pluralize( Lookbooq_Cuztom::beautify( $name ) );
 			}
 		}
 
@@ -65,8 +65,8 @@ class Cuztom_Post_Type
 	 */
 	function register_post_type()
 	{
-		if( $reserved = Cuztom::is_reserved_term( $this->name ) ) {
-			new Cuztom_Notice( $reserved->get_error_message(), 'error' );
+		if( $reserved = Lookbooq_Cuztom::is_reserved_term( $this->name ) ) {
+			new Lookbooq_Cuztom_Notice( $reserved->get_error_message(), 'error' );
 		} else {
 			$labels = array_merge(
 				array(
@@ -119,7 +119,7 @@ class Cuztom_Post_Type
 	 */
 	function add_taxonomy( $name, $args = array(), $labels = array() )
 	{
-		$taxonomy = new Cuztom_Taxonomy( $name, $this->name, $args, $labels );
+		$taxonomy = new Lookbooq_Cuztom_Taxonomy( $name, $this->name, $args, $labels );
 		
 		return $this;
 	}
@@ -140,7 +140,7 @@ class Cuztom_Post_Type
 	 */
 	function add_meta_box( $id, $args )
 	{
-		$box = new Cuztom_Meta_Box( $id, $args, $this->name );
+		$box = new Lookbooq_Cuztom_Meta_Box( $id, $args, $this->name );
 		
 		return $this;
 	}
