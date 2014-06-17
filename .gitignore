@@ -3,7 +3,8 @@ node_modules
 
 # Composer
 composer.lock
+composer.phar
 
-# Vendor
-vendor/*.php
-vendor/composer
+# Lib
+/lib/*.php
+/lib/composer

@@ -9,7 +9,7 @@ if( ! defined( 'ABSPATH' ) ) exit;
  * @since 	1.5
  *
  */
-class Cuztom_Meta
+class Lookbooq_Cuztom_Meta
 {
 	var $id;
 	var $title;
@@ -82,13 +82,13 @@ class Cuztom_Meta
 	 */
 	function output_row( $field )
 	{
-		if( ( $field instanceof Cuztom_Tabs ) || ( $field instanceof Cuztom_Bundle ) ) {
+		if( ( $field instanceof Lookbooq_Cuztom_Tabs ) || ( $field instanceof Lookbooq_Cuztom_Bundle ) ) {
 			$field->output_row();
 		} else {
-			if( ! $field instanceof Cuztom_Field_Hidden ) :
-				$field->output_row( $field->value );
-			else :
+			if( $field instanceof Lookbooq_Cuztom_Field_Hidden ) :
 				echo $field->output( $field->value );
+			else :
+				$field->output_row( $field->value );
 			endif;
 		}
 	}
@@ -105,9 +105,9 @@ class Cuztom_Meta
 		// Loop through each meta box
 		if( ! empty( $this->data ) && isset( $_POST['cuztom'] ) ) {
 			foreach( $this->data as $id => $field ) {
-				if( ( $field instanceof Cuztom_Tabs || $field instanceof Cuztom_Accordion ) && $tabs = $field ) :
+				if( ( $field instanceof Lookbooq_Cuztom_Tabs || $field instanceof Lookbooq_Cuztom_Accordion ) && $tabs = $field ) :
 					$tabs->save( $object, $values );
-				elseif( $field instanceof Cuztom_Bundle && $bundle = $field ) :
+				elseif( $field instanceof Lookbooq_Cuztom_Bundle && $bundle = $field ) :
 					$value = @$values[$id];
 					$bundle->save( $object, $value );
 				else :
@@ -177,7 +177,7 @@ class Cuztom_Meta
 				return get_user_meta( $this->object );
 				break;
 			case 'term' :
-				return get_cuztom_term_meta( $this->object, isset( $object->taxonomy ) ? $object->taxonomy : null );
+				return get_lookbooq_cuztom_term_meta( $this->object, isset( $object->taxonomy ) ? $object->taxonomy : null );
 				break;
 			default :
 				return false;
@@ -206,15 +206,12 @@ class Cuztom_Meta
 		{
 			foreach( $data as $type => $field )
 			{
-				$values = @$values[$field['id']][0];
-				$values = maybe_unserialize( $values );
-
 				// Tabs / accordion
 				if( is_string( $type ) && ( $type == 'tabs' || $type == 'accordion' ) )
 				{
 					$args = array_merge( $field, array( 'meta_type' => $this->meta_type, 'object' => $this->object ) );
-					$tabs = $type == 'tabs' ? new Cuztom_Tabs( $field ) : new Cuztom_Accordion( $field );
-					$tabs->build( $field['panels'], $values[0] );
+					$tabs = $type == 'tabs' ? new Lookbooq_Cuztom_Tabs( $field ) : new Lookbooq_Cuztom_Accordion( $field );
+					$tabs->build( $field['panels'], $values );
 
 					$cuztom['data'][$this->id][$tabs->id] = $tabs;
 					$cuztom['fields'][$tabs->id] = $tabs;
@@ -223,8 +220,8 @@ class Cuztom_Meta
 				// Bundle
 				elseif( is_string( $type ) && $type == 'bundle' )
 				{
-					$args 	=  array_merge( $field, array( 'meta_type' => $this->meta_type, 'object' => $this->object, 'value' => $values ) );
-					$bundle = new Cuztom_Bundle( $args );
+					$args 	=  array_merge( $field, array( 'meta_type' => $this->meta_type, 'object' => $this->object, 'value' => @$values[$field['id']][0] ) );
+					$bundle = new Lookbooq_Cuztom_Bundle( $args );
 					$bundle->build( $field['fields'], $values );
 					
 					$cuztom['data'][$this->id][$bundle->id] = $bundle;
@@ -234,8 +231,8 @@ class Cuztom_Meta
 				// Fields
 				else
 				{
-					$args 	= array_merge( $field, array( 'meta_type' => $this->meta_type, 'object' => $this->object, 'value' => $values ) );
-					$field 	= Cuztom_Field::create( $args );
+					$args 	= array_merge( $field, array( 'meta_type' => $this->meta_type, 'object' => $this->object, 'value' => @$values[$field['id']][0] ) );
+					$field 	= Lookbooq_Cuztom_Field::create( $args );
 
 					$cuztom['data'][$this->id][$field->id] = $field;
 					$cuztom['fields'][$field->id] = $field;

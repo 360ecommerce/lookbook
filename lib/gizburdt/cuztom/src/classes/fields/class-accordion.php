@@ -2,7 +2,7 @@
 
 if( ! defined( 'ABSPATH' ) ) exit;
 
-class Cuztom_Accordion extends Cuztom_Tabs
+class Lookbooq_Cuztom_Accordion extends Lookbooq_Cuztom_Tabs
 {
 	/**
 	 * Ouput accordion row

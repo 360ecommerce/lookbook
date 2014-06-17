@@ -2,7 +2,7 @@
 
 if( ! defined( 'ABSPATH' ) ) exit;
 
-class Cuztom_Field_Datetime extends Cuztom_Field
+class Lookbooq_Cuztom_Field_Datetime extends Lookbooq_Cuztom_Field
 {
 	var $_supports_ajax			= true;
 	var $_supports_bundle		= true;

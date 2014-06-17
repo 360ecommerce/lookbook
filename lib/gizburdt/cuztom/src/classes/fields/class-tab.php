@@ -2,7 +2,7 @@
 
 if( ! defined( 'ABSPATH' ) ) exit;
 
-class Cuztom_Tab extends Cuztom_Field
+class Lookbooq_Cuztom_Tab extends Lookbooq_Cuztom_Field
 {
 	var $title;
 	var $fields = array();
@@ -12,7 +12,7 @@ class Cuztom_Tab extends Cuztom_Field
 		parent::__construct( $args );
 
 		if( ! $this->id )
-			$this->id = Cuztom::uglify( $this->title );
+			$this->id = Lookbooq_Cuztom::uglify( $this->title );
 	}
 
 	function output( $args = array() )
@@ -25,7 +25,7 @@ class Cuztom_Tab extends Cuztom_Field
 		
 		echo '<div id="' . $this->id . '">';
 
-			if( $fields instanceof Cuztom_Bundle )
+			if( $fields instanceof Lookbooq_Cuztom_Bundle )
 			{
 				$fields->output( $field->value );
 			}
@@ -34,7 +34,7 @@ class Cuztom_Tab extends Cuztom_Field
 				echo '<table border="0" cellading="0" cellspacing="0" class="from-table cuztom-table">';
 					foreach( $fields as $id => $field )
 					{
-						if( ! $field instanceof Cuztom_Field_Hidden )
+						if( ! $field instanceof Lookbooq_Cuztom_Field_Hidden )
 						{
 							echo '<tr class="cuztom-tr">';
 								echo '<th class="cuztom-th">';
@@ -86,14 +86,11 @@ class Cuztom_Tab extends Cuztom_Field
 	function build( $data, $value )
 	{
 		foreach( $data as $type => $field ) {
-			if( is_string( $type ) && $type == 'bundle' ) 
-			{
+			if( is_string( $type ) && $type == 'bundle' ) {
 				// $tab->fields = $this->build( $fields );
-			} 
-			else 
-			{
-				$args = array_merge( $field, array( 'meta_type' => $this->meta_type, 'object' => $this->object, 'value'	=> maybe_unserialize( @$value[$field['id']][0] ) ) );
-				$field = Cuztom_Field::create( $args );
+			} else {
+				$args = array_merge( $field, array( 'meta_type' => $this->meta_type, 'object' => $this->object, 'value'	=> @$value[$field['id']][0] ) );
+				$field = Lookbooq_Cuztom_Field::create( $args );
 
 				$this->fields[$field->id] = $field;
 			}

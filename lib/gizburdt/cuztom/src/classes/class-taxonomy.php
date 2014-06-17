@@ -9,7 +9,7 @@ if( ! defined( 'ABSPATH' ) ) exit;
  * @since 	0.2
  *
  */
-class Cuztom_Taxonomy
+class Lookbooq_Cuztom_Taxonomy
 {
 	var $name;
 	var $title;
@@ -36,13 +36,13 @@ class Cuztom_Taxonomy
 		// Build name
 		if( ! empty( $name ) ) {
 			if( is_array( $name ) ) {
-				$this->name		= Cuztom::uglify( $name[0] );
-				$this->title	= Cuztom::beautify( $name[0] );
-				$this->plural 	= Cuztom::beautify( $name[1] );
+				$this->name		= Lookbooq_Cuztom::uglify( $name[0] );
+				$this->title	= Lookbooq_Cuztom::beautify( $name[0] );
+				$this->plural 	= Lookbooq_Cuztom::beautify( $name[1] );
 			} else {
-				$this->name		= Cuztom::uglify( $name );
-				$this->title	= Cuztom::beautify( $name );
-				$this->plural 	= Cuztom::pluralize( Cuztom::beautify( $name ) );
+				$this->name		= Lookbooq_Cuztom::uglify( $name );
+				$this->title	= Lookbooq_Cuztom::beautify( $name );
+				$this->plural 	= Lookbooq_Cuztom::pluralize( Lookbooq_Cuztom::beautify( $name ) );
 			}
 		}
 
@@ -79,8 +79,8 @@ class Cuztom_Taxonomy
 	 */
 	function register_taxonomy()
 	{
-		if( $reserved = Cuztom::is_reserved_term( $this->name ) ) {
-			new Cuztom_Notice( $reserved->get_error_message(), 'error' );
+		if( $reserved = Lookbooq_Cuztom::is_reserved_term( $this->name ) ) {
+			new Lookbooq_Cuztom_Notice( $reserved->get_error_message(), 'error' );
 		} else {
 			$labels = array_merge(
 				array(
@@ -140,7 +140,7 @@ class Cuztom_Taxonomy
 	 */
 	function add_term_meta( $data = array(), $locations = array( 'add_form', 'edit_form' ) )
 	{
-		$term_meta = new Cuztom_Term_Meta( $this->name, $data, $locations );
+		$term_meta = new Lookbooq_Cuztom_Term_Meta( $this->name, $data, $locations );
 
 		return $this;
 	}

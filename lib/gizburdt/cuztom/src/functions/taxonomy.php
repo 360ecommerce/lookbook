@@ -2,7 +2,7 @@
 
 if( ! defined( 'ABSPATH' ) ) exit;
 
-if( ! function_exists( 'register_cuztom_taxonomy' ) ) {
+if( ! function_exists( 'register_lookbooq_cuztom_taxonomy' ) ) {
 
     /**
      * Registers a Taxonomy for a Post Type
@@ -17,13 +17,13 @@ if( ! function_exists( 'register_cuztom_taxonomy' ) ) {
      * @since 	0.8
      *
      */
-    function register_cuztom_taxonomy( $name, $post_type, $args = array(), $labels = array() )
+    function register_lookbooq_cuztom_taxonomy( $name, $post_type, $args = array(), $labels = array() )
     {
-    	return new Cuztom_Taxonomy( $name, $post_type, $args, $labels );
+    	return new Lookbooq_Cuztom_Taxonomy( $name, $post_type, $args, $labels );
     }
 }
 
-if( ! function_exists( 'get_cuztom_term_meta' ) ) {
+if( ! function_exists( 'get_lookbooq_cuztom_term_meta' ) ) {
 
     /**
      * Get term meta
@@ -36,7 +36,7 @@ if( ! function_exists( 'get_cuztom_term_meta' ) ) {
      * @author 	Gijs Jorissen
      * @since 	2.5
      */
-    function get_cuztom_term_meta( $term, $taxonomy, $key = null )
+    function get_lookbooq_cuztom_term_meta( $term, $taxonomy, $key = null )
     {
         if( empty( $taxonomy ) || empty( $term ) ) {
             return false;
@@ -64,7 +64,7 @@ if( ! function_exists( 'get_cuztom_term_meta' ) ) {
     }
 }
 
-if( ! function_exists( 'the_cuztom_term_meta' ) ) {
+if( ! function_exists( 'the_lookbooq_cuztom_term_meta' ) ) {
 
     /**
      * Get term meta
@@ -76,12 +76,12 @@ if( ! function_exists( 'the_cuztom_term_meta' ) ) {
      * @author 	Gijs Jorissen
      * @since 	2.5
      */
-    function the_cuztom_term_meta( $term, $taxonomy, $key = null )
+    function the_lookbooq_cuztom_term_meta( $term, $taxonomy, $key = null )
     {
         if( empty( $term ) || empty( $taxonomy ) ) {
             return false;
         }
 
-        echo get_cuztom_term_meta( $term, $taxonomy, $key );
+        echo get_lookbooq_cuztom_term_meta( $term, $taxonomy, $key );
     }
 }

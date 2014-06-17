@@ -9,7 +9,7 @@ if( ! defined( 'ABSPATH' ) ) exit;
  * @since 	0.3.3
  *
  */
-class Cuztom_Field
+class Lookbooq_Cuztom_Field
 {
 	var $id						= '';
 	var $type					= null;
@@ -65,10 +65,9 @@ class Cuztom_Field
 
 		if( $this->is_repeatable() ) {
 			$this->after_name = '[]';
-			$this->value = @$args['value'];
-		} else {
-			$this->value = @$args['value'][0];
 		}
+
+		$this->value = maybe_unserialize( @$args['value'] );
 	}
 	
 	/**
@@ -319,8 +318,8 @@ class Cuztom_Field
 		{
 			if( ! is_null( $value ) ) {
 				$output = 'data-' . $attribute . '="' . $value . '"';
-			} elseif( ! $value && isset( $this->args[Cuztom::uglify( $attribute )] ) ) {
-				$output = 'data-' . $attribute . '="' . $this->args[Cuztom::uglify( $attribute )] . '"';
+			} elseif( ! $value && isset( $this->args[Lookbooq_Cuztom::uglify( $attribute )] ) ) {
+				$output = 'data-' . $attribute . '="' . $this->args[Lookbooq_Cuztom::uglify( $attribute )] . '"';
 			}
 		}
 
@@ -419,7 +418,7 @@ class Cuztom_Field
 	 */
 	static function create( $args )
 	{
-		$class = 'Cuztom_Field_' . str_replace( ' ', '_', ucwords( str_replace( '_', ' ', $args['type'] ) ) );
+		$class = 'Lookbooq_Cuztom_Field_' . str_replace( ' ', '_', ucwords( str_replace( '_', ' ', $args['type'] ) ) );
 
 		if( class_exists( $class ) ) {
 			return new $class( $args );

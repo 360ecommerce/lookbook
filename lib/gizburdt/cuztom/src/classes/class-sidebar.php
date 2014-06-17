@@ -9,7 +9,7 @@ if( ! defined( 'ABSPATH' ) ) exit;
  * @since 	0.5
  *
  */
-class Cuztom_Sidebar
+class Lookbooq_Cuztom_Sidebar
 {
 	var $sidebar;
 	

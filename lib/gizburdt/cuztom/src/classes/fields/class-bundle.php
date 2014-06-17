@@ -2,7 +2,7 @@
 
 if( ! defined( 'ABSPATH' ) ) exit;
 
-class Cuztom_Bundle extends Cuztom_Field
+class Lookbooq_Cuztom_Bundle extends Lookbooq_Cuztom_Field
 {
 	var $type 		= 'bundle';
 	var $fields 	= array();
@@ -95,7 +95,7 @@ class Cuztom_Bundle extends Cuztom_Field
 						$field->default_value 	= isset( $this->default_value[$index][$id] ) ? $this->default_value[$index][$id] : $field->default_value;
 						$value 					= isset( $this->value[$index][$id] ) ? $this->value[$index][$id] : '';
 						
-						if( ! $field instanceof Cuztom_Field_Hidden )
+						if( ! $field instanceof Lookbooq_Cuztom_Field_Hidden )
 						{
 							$output .= '<tr>';
 								$output .= '<th class="cuztom-th">';
@@ -209,7 +209,7 @@ class Cuztom_Bundle extends Cuztom_Field
 					) 
 				);
 				
-				$field = Cuztom_Field::create( $args );
+				$field = Lookbooq_Cuztom_Field::create( $args );
 				$field->repeatable 	= false;
 				$field->ajax 		= false;
 				$field->in_bundle 	= true;
