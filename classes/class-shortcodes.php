@@ -16,6 +16,27 @@ class Lookbooq_Shortcodes
 			'name'			=> null,
 			'class' 		=> '',
 		), $atts ) );
+
+		$piqtures = get_posts( array(
+			'post_type'		=> 'piqture',
+			'tax_query'		=> array( array(
+				'taxonomy'		=> 'lookbooq',
+				'field'			=> 'slug',
+				'terms'			=> $name
+			) )
+		) );
+
+		ob_start(); ?>
+
+		<?php if( $piqtures ) : ?>
+			<div class="lookbooq js-lookbooq">
+				<?php foreach( $piqtures as $piqture ) : ?>
+					<?php echo do_shortcode('[piqture id="' . $piqture->ID . '"]'); ?>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+
+		<?php $output = ob_get_clean(); return $output;
 	}
 
 	function piqture( $atts, $content = null )
@@ -33,27 +54,27 @@ class Lookbooq_Shortcodes
 			<div class="piqture">
 				<div class="pointers">
 					<?php $pointers = get_post_meta( $piqture->ID, '_pointers', true ); ?>
-					<?php $pointers = array( '20-20' ); //'30-30', '40-40' ?>
 					<?php if( ! empty( $pointers ) ) : ?>
-						<?php foreach( $pointers as $pointer ) : ?>
+						<?php foreach( $pointers as $i => $pointer ) : ?>
 							<?php
-								$measure = explode( '-', $pointer );
-								$left = $measure[0] . '%';
-								$top = $measure[1] . '%';
+								$left 			= @$pointer['_left'] . '%';
+								$top 			= @$pointer['_top'] . '%';
+								$title 			= @$pointer['_title'];
+								$description 	= @$pointer['_description'];
+								$link 			= @$pointer['_link'];
+								$i++;
 							?>
 							<div class="pointer" style="left: <?php echo $left; ?>; top: <?php echo $top; ?>">
-								<div class="pointer-icon"></div>
+								<div class="pointer-bullet"><span><?php echo $i; ?></span></div>
 								<div class="tip">
-									<div class="tip-content">
-										Hier een korte uitleg over wat je hier ziet. Zo kun je kleine onderdelen van een foto even uitlichten.
-									</div>
+									<div class="tip-content"><?php echo $description; ?></div>
 									<div class="tip-arrow"></div>
 								</div>
 							</div>
 						<?php endforeach; ?>
 					<?php endif; ?>
 				</div>
-				<div class="caption">
+				<div class="piqture-caption">
 					<h3 class="caption-title"><?php echo get_the_title( $piqture->ID ); ?></h3>
 					<div class="caption-content"><?php echo apply_filters( 'the_content', $piqture->post_content ); ?></div>
 				</div>

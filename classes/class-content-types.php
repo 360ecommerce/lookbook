@@ -17,7 +17,7 @@ class Lookbooq_Content_Types
 	/**
 	 * Add post types
 	 *
-	 * @author 	{TODO:AUTHOR}
+	 * @author 	Gijs Jorissen
 	 * @since 	0.1
 	 */
 	function register_post_types() 
@@ -58,7 +58,7 @@ class Lookbooq_Content_Types
 	/**
 	 * Add taxonomies
 	 *
-	 * @author 	{TODO:AUTHOR}
+	 * @author 	Gijs Jorissen
 	 * @since 	0.1
 	 */
 	function register_taxonomies()
@@ -94,48 +94,37 @@ class Lookbooq_Content_Types
 	function add_meta()
 	{
 		$piqture = new Lookbooq_Cuztom_Post_Type( 'piqture' );
-		$piqture->add_meta_box( 'data', array(
-			'title' => __('Data', 'lookbooq'),
-			'fields' => array(
-				array(
-					'id' 			=> '_image',
-					'label'			=> __('Image', 'lookbooq'),
-					'description'	=> __('Image used as background', 'lookbooq'),
-					'type'			=> 'image'
-				),
-			)
-		) );
 
 		$piqture->add_meta_box( 'pointers', array(
 			'title' => __('Pointers', 'lookbooq'),
 			'fields' => array(
 				'bundle' => array(
-					'id' 	 => 'pointers',
+					'id' 	 => '_pointers',
 					'fields' => array(
 						array(
-							'id' 			=> '_pointer_left',
+							'id' 			=> '_left',
 							'label'			=> __('Form left', 'lookbooq'),
 							'description'	=> __('Position from left (%)', 'lookbooq'),
 							'type'			=> 'text'
 						),
 						array(
-							'id' 			=> '_pointer_top',
+							'id' 			=> '_top',
 							'label'			=> __('Form top', 'lookbooq'),
 							'description'	=> __('Position from top (%)', 'lookbooq'),
 							'type'			=> 'text'
 						),
 						array(
-							'id' 			=> '_pointer_title',
+							'id' 			=> '_title',
 							'label'			=> __('Title', 'lookbooq'),
 							'type'			=> 'text'
 						),
 						array(
-							'id' 			=> '_pointer_description',
+							'id' 			=> '_description',
 							'label'			=> __('Description', 'lookbooq'),
 							'type'			=> 'textarea'
 						),
 						array(
-							'id' 			=> '_pointer_link',
+							'id' 			=> '_link',
 							'label'			=> __('Link', 'lookbooq'),
 							'type'			=> 'text'
 						)
