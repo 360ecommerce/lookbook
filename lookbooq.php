@@ -86,7 +86,7 @@ class Lookbooq
 
 	function register_scripts()
 	{
-		wp_register_script( 'lookbooq', LOOKBOOQ_URL . 'assets/js/lookbooq.js', null, LOOKBOOQ_VERSION );
+		wp_register_script( 'lookbooq', LOOKBOOQ_URL . 'assets/js/lookbooq.js', array( 'jquery' ), LOOKBOOQ_VERSION );
 	}
 	
 	function enqueue_scripts()
@@ -104,6 +104,61 @@ class Lookbooq
 			'wp_version'		=> get_bloginfo( 'version' )
 		) );
 	}
+
+	/**
+     * Get template
+     * Searches for plugin, theme, child theme
+     *
+     * @author Gijs Jorissen
+     * @since 0.1
+     */
+    static function get_template( $templates, $args, $load = false, $require_once = true )
+    {
+        // No file found yet
+        $located = false;
+     
+        foreach ( (array) $templates as $template ) 
+        {
+            // Continue if template is empty
+            if ( empty( $template ) ) {
+                continue;
+            }
+     
+            // Trim off any slashes from the template name
+            $template = ltrim( $template, '/' );
+     
+            // Check child theme first
+            if ( file_exists( trailingslashit( get_stylesheet_directory() ) . 'magepress/' . $template ) ) {
+                $located = trailingslashit( get_stylesheet_directory() ) . 'magepress/' . $template;
+                break;
+     
+            // Check parent theme next
+            } elseif ( file_exists( trailingslashit( get_template_directory() ) . 'magepress/' . $template ) ) {
+                $located = trailingslashit( get_template_directory() ) . 'magepress/' . $template;
+                break;
+     
+            // Check theme compatibility last
+            } elseif ( file_exists( trailingslashit( MAGEPRESS_DIR ) . 'templates/' . $template ) ) {
+                $located = trailingslashit( MAGEPRESS_DIR ) . 'templates/' . $template;
+                break;
+            }
+        }
+        
+        // Start OB
+        ob_start();
+
+        // Extract args
+        extract($args);
+
+        // Require when exists
+        if( ! empty( $located ) ) {
+            require_once $located;
+        }
+
+        $output = ob_get_clean();
+        
+        return $output;
+    }
 }
 
 endif; // End class_exists check
