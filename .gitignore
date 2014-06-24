@@ -2,9 +2,11 @@
 node_modules
 
 # Composer
+/vendor/
 composer.lock
 composer.phar
 
 # Lib
 /lib/*.php
 /lib/composer
+/lib/jquery
