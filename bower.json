@@ -1,0 +1,8 @@
+{
+    "name": "gizburdt/lookbooq",
+    "version": "0.1",
+    "dependencies": {
+        "bxslider-4":       "latest"
+    },
+    "private": "true"
+}
