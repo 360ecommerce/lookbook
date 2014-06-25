@@ -30,9 +30,11 @@ class Lookbooq_Shortcodes
 
 		<?php if( $piqtures ) : ?>
 			<div class="lookbooq js-lookbooq">
-				<?php foreach( $piqtures as $piqture ) : ?>
-					<?php echo do_shortcode('[piqture id="' . $piqture->ID . '"]'); ?>
-				<?php endforeach; ?>
+				<div class="lookboow-slider js-lookbooq-slider">
+					<?php foreach( $piqtures as $piqture ) : ?>
+						<?php echo do_shortcode('[piqture id="' . $piqture->ID . '"]'); ?>
+					<?php endforeach; ?>
+				</div>
 			</div>
 		<?php endif; ?>
 
@@ -51,7 +53,7 @@ class Lookbooq_Shortcodes
 		ob_start(); ?>
 
 		<?php if( $piqture ) : ?>
-			<div class="piqture">
+			<div class="piqture js-piqture">
 				<div class="pointers">
 					<?php $pointers = get_post_meta( $piqture->ID, '_pointers', true ); ?>
 					<?php if( ! empty( $pointers ) ) : ?>

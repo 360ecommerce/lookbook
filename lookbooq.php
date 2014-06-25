@@ -86,11 +86,13 @@ class Lookbooq
 
 	function register_scripts()
 	{
-		wp_register_script( 'lookbooq', LOOKBOOQ_URL . 'assets/js/lookbooq.js', array( 'jquery' ), LOOKBOOQ_VERSION );
+		wp_register_script( 'lookbooq-bxslider', LOOKBOOQ_URL . 'lib/bxslider-4/jquery.bxslider.min.js', array( 'jquery' ), LOOKBOOQ_VERSION, true );
+		wp_register_script( 'lookbooq', LOOKBOOQ_URL . 'assets/js/lookbooq.js', array( 'jquery' ), LOOKBOOQ_VERSION, true );
 	}
 	
 	function enqueue_scripts()
 	{
+		wp_enqueue_script( 'lookbooq-bxslider' );
 		wp_enqueue_script( 'lookbooq' );
 		
 		self::localize_scripts();
