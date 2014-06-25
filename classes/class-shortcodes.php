@@ -30,7 +30,7 @@ class Lookbooq_Shortcodes
 
 		<?php if( $piqtures ) : ?>
 			<div class="lookbooq js-lookbooq">
-				<div class="lookboow-slider js-lookbooq-slider">
+				<div class="lookbooq-slider js-lookbooq-slider">
 					<?php foreach( $piqtures as $piqture ) : ?>
 						<?php echo do_shortcode('[piqture id="' . $piqture->ID . '"]'); ?>
 					<?php endforeach; ?>

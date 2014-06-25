@@ -5,7 +5,10 @@ jQuery(document).ready(function($){
 		piqture = $('.js-piqture');
 
 	// Slider
-	lookbooq.find('.js-lookbooq-slider').bxSlider();
+	lookbooq.find('.js-lookbooq-slider').bxSlider({
+		nextText: '',
+		prevText: ''
+	});
 
 	// Open tip/bullet
 	piqture.on('click', '.pointer-bullet', function(event){
