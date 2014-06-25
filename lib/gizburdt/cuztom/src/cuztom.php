@@ -2,7 +2,7 @@
 
 if( ! defined( 'ABSPATH' ) ) exit;
 
-if( ! class_exists( 'Cuztom' ) ) :
+if( ! class_exists( 'Lookbooq_Cuztom' ) ) :
 
 /**
  * Cuztom handles init of Cuztom
