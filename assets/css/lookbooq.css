@@ -2,8 +2,11 @@
 .lookbooq .pointers{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 3; }
 
 .piqture{ position: relative; }
-.piqture .piqture-img{ position: relative; z-index: 1; }
-.piqture .piqture-caption{ position: absolute; bottom: 0; z-index: 2; }
+.piqture .piqture-img{ position: relative; z-index: 1; max-width: 100%; height: auto; }
+.piqture .piqture-caption{ position: absolute; bottom: 0; z-index: 2; background: rgba(255,255,255,0.6); padding: 15px; }
+.piqture .caption-title{ margin-top: 0; }
+.piqture .caption-content{  }
+.piqture .caption-content p:last-child{ margin-bottom: 0; }
 
 .piqture .pointer{ position: absolute; }
 .piqture .pointer-bullet{ background: #005271; border-radius: 50%; width: 40px; height: 40px; color: #fff; text-align: center; line-height: 40px; font-weight: bold; font-size: 18px; cursor: pointer; }
