@@ -19,11 +19,13 @@ class Lookbooq_Shortcodes
 
 		$piqtures = get_posts( array(
 			'post_type'		=> 'piqture',
+			'orderby'		=> 'menu_order',
+			'order'			=> 'ASC',
 			'tax_query'		=> array( array(
 				'taxonomy'		=> 'lookbooq',
 				'field'			=> 'slug',
 				'terms'			=> $name
-			) )
+			) ),
 		) );
 
 		ob_start(); ?>
@@ -69,8 +71,8 @@ class Lookbooq_Shortcodes
 							<div class="pointer" style="left: <?php echo $left; ?>; top: <?php echo $top; ?>">
 								<div class="pointer-bullet"><span><?php echo $i; ?></span></div>
 								<div class="tip">
+									<div class="tip-arrow arrow-up"></div>
 									<div class="tip-content"><?php echo $description; ?></div>
-									<div class="tip-arrow"></div>
 								</div>
 							</div>
 						<?php endforeach; ?>

@@ -11,5 +11,14 @@
 .piqture .pointer{ position: absolute; }
 .piqture .pointer-bullet{ background: #005271; border-radius: 50%; width: 40px; height: 40px; color: #fff; text-align: center; line-height: 40px; font-weight: bold; font-size: 18px; cursor: pointer; }
 
-.piqture .tip{ display: none; }
-.piqture .tip-content{  }
+.piqture .tip{ position: absolute; left: -9999px; padding-top: 5px; }
+.piqture .tip-content{ padding: 10px; background: rgba(255,255,255,0.7); width: 300px; }
+.piqture .tip-arrow{ width: 0; height: 0; margin-left: 10px; }
+.piqture .tip-arrow.arrow-up { border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid rgba(255,255,255,0.7); }
+.piqture .tip-arrow.arrow-down { border-left: 20px solid transparent; border-right: 20px solid transparent; border-top: 20px solid rgba(255,255,255,0.7); }
+.piqture .tip-arrow.arrow-right { border-top: 60px solid transparent; border-bottom: 60px solid transparent; border-left: 60px solid rgba(255,255,255,0.7); }
+.piqture .tip-arrow.arrow-left { border-top: 10px solid transparent; border-bottom: 10px solid transparent;  border-right:10px solid rgba(255,255,255,0.7); }
+
+@media screen (min-width: 768px) {
+
+}
