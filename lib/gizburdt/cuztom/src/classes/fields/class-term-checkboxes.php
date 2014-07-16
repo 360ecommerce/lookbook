@@ -91,6 +91,6 @@ class Lookbooq_Cuztom_Field_Term_Checkboxes extends Lookbooq_Cuztom_Field
 	 */
 	function get_taxonomy_terms()
     {
-        $this->terms = get_terms( $this->args['taxonomy'], $this->options );
+        $this->terms = get_terms( $this->args['taxonomy'], $this->args );
     }
 }

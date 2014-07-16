@@ -125,8 +125,10 @@ class Lookbooq_Cuztom
 	 */
 	private function execute()
 	{
-		// Global
-		global $cuztom;
+		// Globals
+		global $cuztom, $current_screen;
+
+		// Cuztom
 		$cuztom = array(
 			'version'	=> self::$version,
 			'fields' 	=> array(),
