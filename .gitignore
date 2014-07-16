@@ -10,3 +10,6 @@ composer.phar
 /lib/*.php
 /lib/composer
 /lib/jquery
+
+# Codekit
+config.codekit

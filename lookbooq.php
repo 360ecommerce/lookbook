@@ -77,11 +77,15 @@ class Lookbooq
 	function register_styles()
 	{		
 		wp_register_style( 'lookbooq', LOOKBOOQ_URL . 'assets/css/lookbooq.css', false, LOOKBOOQ_VERSION, 'screen' );
+		wp_register_style( 'lookbooq-style', LOOKBOOQ_URL . 'assets/css/lookbooq-style.css', false, LOOKBOOQ_VERSION, 'screen' );
+		wp_register_style( 'lookbooq-responsive', LOOKBOOQ_URL . 'assets/css/lookbooq-responsive.css', false, LOOKBOOQ_VERSION, 'screen' );
 	}
 
 	function enqueue_styles()
 	{
 		wp_enqueue_style( 'lookbooq' );
+		wp_enqueue_style( 'lookbooq-style' );
+		wp_enqueue_style( 'lookbooq-responsive' );
 	}
 
 	function register_scripts()
