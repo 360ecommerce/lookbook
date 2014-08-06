@@ -13,7 +13,7 @@ jQuery(document).ready(function($){
 	// Open tip/bullet
 	piqture.on('click', '.pointer-bullet', function(event){
 		var that 		= $(this),
-			container 	= $(this).closest('.pointers'),
+			container 	= $(this).closest('.pointers')
 			pointer 	= that.closest('.pointer'),
 			tip 		= pointer.find('.tip'),
 			arrow 		= pointer.find('.tip-arrow');
@@ -36,14 +36,19 @@ jQuery(document).ready(function($){
 				arrow: arrow
 			};
 
-		if( tip.width > (container.width - pointer.position.left) ) {
-			var fix = (tip.width - (container.width - pointer.position.left) + 15);
-			tip.object.css({ left: -(fix) });
-			tip.arrow.css({ marginLeft: fix + 10 });
-		} else {
-			tip.object.css({ left: 0 });
-		}
+		that.toggleClass('pointer-active');
 
+		if( that.hasClass('pointer-active') ) {
+			if( tip.width > (container.width - pointer.position.left) ) {
+				var fix = (tip.width - (container.width - pointer.position.left) + 15);
+				tip.object.css({ left: -(fix) });
+				tip.arrow.css({ marginLeft: fix + 10 });
+			} else {
+				tip.object.css({ left: 0 });
+			}
+		} else {
+			tip.object.css({ left: -9999 });
+		}
 
 		event.preventDefault();
 	});
