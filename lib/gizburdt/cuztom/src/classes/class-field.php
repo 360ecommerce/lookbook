@@ -140,7 +140,7 @@ class Lookbooq_Cuztom_Field
 
 		$output = '<div class="cuztom-repeatable">';
 			$output .= $this->_output_repeatable_control( $value );
-			$output .= '<ul class="cuztom-sortable js-cz-sortable">';
+			$output .= '<ul class="cuztom-sortable js-cztm-sortable">';
 				if( is_array( $value ) ) {
 					foreach( $values as $value ) {
 						$output .= $this->_output_repeatable_item( $value, $values );
@@ -167,7 +167,7 @@ class Lookbooq_Cuztom_Field
 	 */
 	function _output_repeatable_item( $value = null, $values = 0 )
 	{
-		return '<li class="cuztom-field cuztom-sortable-item"><div class="cuztom-handle-sortable"><a href="#" tabindex="-1"></a></div>' . $this->_output( $value ) . ( count( $values ) > 1 ? '<div class="cuztom-remove-sortable js-cz-remove-sortable"><a href="#" tabindex="-1"></a></div>' : '' ) . '</li>';
+		return '<li class="cuztom-field cuztom-sortable-item"><div class="cuztom-handle-sortable"><a href="#" tabindex="-1"></a></div>' . $this->_output( $value ) . ( count( $values ) > 1 ? '<div class="cuztom-remove-sortable js-cztm-remove-sortable"><a href="#" tabindex="-1"></a></div>' : '' ) . '</li>';
 	}
 
 	/**
@@ -180,7 +180,7 @@ class Lookbooq_Cuztom_Field
 	function _output_repeatable_control( $value )
 	{
 		$output = '<div class="cuztom-control">';
-			$output .= '<a class="button-secondary button button-small cuztom-button js-cz-add-sortable" href="#" data-sortable-type="repeatable" data-field-id="' . $this->id . '">' . sprintf( '+ %s', __( 'Add item', 'cuztom' ) ) . '</a>';
+			$output .= '<a class="button-secondary button button-small cuztom-button js-cztm-add-sortable" href="#" data-sortable-type="repeatable" data-field-id="' . $this->id . '">' . sprintf( '+ %s', __( 'Add item', 'cuztom' ) ) . '</a>';
 			if( $this->limit ) {
 				$output .= '<div class="cuztom-counter">';
 					$output .= '<span class="current">' . count( $value ) . '</span>';
@@ -214,7 +214,7 @@ class Lookbooq_Cuztom_Field
 	 */
 	function _output_ajax_button()
 	{
-		return '<a class="cuztom-ajax-save js-cz-ajax-save button button-secondary button-small" href="#" data-button-for="' . $this->id . '" data-object="' . $this->object . '" data-meta-type="' . $this->meta_type . '">' . __( 'Save', 'cuztom' ) . '</a>';
+		return '<a class="cuztom-ajax-save js-cztm-ajax-save button button-secondary button-small" href="#" data-button-for="' . $this->id . '" data-object="' . $this->object . '" data-meta-type="' . $this->meta_type . '">' . __( 'Save', 'cuztom' ) . '</a>';
 	}
 
 	/**
@@ -265,6 +265,30 @@ class Lookbooq_Cuztom_Field
 	}
 
 	/**
+	 * Get the complete id
+	 * 
+	 * @author  Gijs Jorissen
+	 * @since  	3.0
+	 *
+	 */
+	function get_id()
+	{
+		return $this->before_id . $this->id . $this->after_id;
+	}
+
+	/**
+	 * Get the complete name
+	 * 
+	 * @author  Gijs Jorissen
+	 * @since  	3.0
+	 *
+	 */
+	function get_name()
+	{
+		return $this->before_name . '[' . $this->id . ']' . $this->after_name;
+	}
+
+	/**
 	 * Outputs the fields name attribute
 	 * 
 	 * @author  Gijs Jorissen
@@ -273,7 +297,7 @@ class Lookbooq_Cuztom_Field
 	 */
 	function output_name( $overwrite = null )
 	{
-		return apply_filters( 'cuztom_field_output_name', ( $overwrite ? 'name="' . $overwrite . '"' : 'name="cuztom' . $this->before_name . '[' . $this->id . ']' . $this->after_name . '"' ), $overwrite, $this );
+		return apply_filters( 'cuztom_field_output_name', ( $overwrite ? 'name="' . $overwrite . '"' : 'name="cuztom' . $this->get_name() . '"' ), $overwrite, $this );
 	}
 
 	/**
@@ -285,7 +309,7 @@ class Lookbooq_Cuztom_Field
 	 */
 	function output_id( $overwrite = null )
 	{
-		return apply_filters( 'cuztom_field_output_id', ( $overwrite ? 'id="' . $overwrite . '"' : 'id="' . $this->before_id . $this->id . $this->after_id . '"' ), $overwrite, $this );
+		return apply_filters( 'cuztom_field_output_id', ( $overwrite ? 'id="' . $overwrite . '"' : 'id="' . $this->get_id() . '"' ), $overwrite, $this );
 	}
 
 	/**

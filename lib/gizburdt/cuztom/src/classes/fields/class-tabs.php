@@ -49,7 +49,7 @@ class Lookbooq_Cuztom_Tabs extends Lookbooq_Cuztom_Field
 		$tabs 			= $this->tabs;
 		$args['type'] 	= 'tabs';
 				
-		echo '<div class="js-cz-tabs">';
+		echo '<div class="js-cztm-tabs">';
 			echo '<ul>';
 				foreach( $tabs as $title => $tab )
 				{

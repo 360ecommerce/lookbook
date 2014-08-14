@@ -63,6 +63,7 @@
   display: block;
   float: left;
   margin-top: 2px;
+  width: 100%;
 }
 .cuztom .cuztom-input {
   margin-right: 3px;
@@ -145,6 +146,7 @@
   border-radius: 0;
   -webkit-border-radius: 0;
   cursor: move;
+  padding-left: 25px !important;
 }
 .cuztom .cuztom-accordion .ui-accordion-content {
   padding: 0;
