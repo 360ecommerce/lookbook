@@ -32,7 +32,7 @@ class Lookbooq_Cuztom_Accordion extends Lookbooq_Cuztom_Tabs
 		$tabs 			= $this->tabs;
 		$args['type'] 	= 'accordion';
 
-		echo '<div class="js-cz-accordion">';
+		echo '<div class="js-cztm-accordion">';
 			foreach( $tabs as $title => $tab )
 			{
 				$tab->output( $args );
