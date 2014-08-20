@@ -18,14 +18,15 @@ class Lookbooq_Shortcodes
 		), $atts ) );
 
 		$piqtures = get_posts( array(
-			'post_type'		=> 'piqture',
-			'orderby'		=> 'menu_order',
-			'order'			=> 'ASC',
-			'tax_query'		=> array( array(
-				'taxonomy'		=> 'lookbooq',
-				'field'			=> 'slug',
-				'terms'			=> $name
+			'post_type'			=> 'piqture',
+			'orderby'			=> 'menu_order',
+			'order'				=> 'ASC',
+			'tax_query'			=> array( array(
+				'taxonomy'			=> 'lookbooq',
+				'field'				=> 'slug',
+				'terms'				=> $name
 			) ),
+			'posts_per_page'	=> -1
 		) );
 
 		ob_start(); ?>
