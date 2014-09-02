@@ -10,6 +10,18 @@ jQuery(document).ready(function($){
 		prevText: ''
 	});
 
+	// Fancybox
+	piqture.on('click', '.js-lookbooq-fancybox', function(event){
+		if( event.target === this ) {
+			var slides = $('.js-lookbooq-fancybox');
+				slides = slides.map(function(){ return $(this).attr('href') });
+
+			$.fancybox(slides);
+		}
+
+		event.preventDefault();
+	});
+
 	// Open tip/bullet
 	piqture.on('click', '.pointer-bullet', function(event){
 		var that 		= $(this),
