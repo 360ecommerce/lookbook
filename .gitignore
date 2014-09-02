@@ -1,3 +1,7 @@
+# Crap
+.DS_Store
+.log
+
 # Node
 node_modules
 
