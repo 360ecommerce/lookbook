@@ -75,7 +75,11 @@ class Lookbooq
 	}
 
 	function register_styles()
-	{		
+	{
+		// Lib
+		wp_register_style( 'lookbooq-fancybox', LOOKBOOQ_URL . 'lib/fancybox/source/jquery.fancybox.css', false, LOOKBOOQ_VERSION, 'screen' );
+
+		// Core
 		wp_register_style( 'lookbooq', LOOKBOOQ_URL . 'assets/css/lookbooq.css', false, LOOKBOOQ_VERSION, 'screen' );
 		wp_register_style( 'lookbooq-style', LOOKBOOQ_URL . 'assets/css/lookbooq-style.css', false, LOOKBOOQ_VERSION, 'screen' );
 		wp_register_style( 'lookbooq-responsive', LOOKBOOQ_URL . 'assets/css/lookbooq-responsive.css', false, LOOKBOOQ_VERSION, 'screen' );
@@ -83,6 +87,10 @@ class Lookbooq
 
 	function enqueue_styles()
 	{
+		// Lib
+		wp_enqueue_style( 'lookbooq-fancybox' );
+
+		// Core
 		wp_enqueue_style( 'lookbooq' );
 		wp_enqueue_style( 'lookbooq-style' );
 		wp_enqueue_style( 'lookbooq-responsive' );
@@ -91,12 +99,14 @@ class Lookbooq
 	function register_scripts()
 	{
 		wp_register_script( 'lookbooq-bxslider', LOOKBOOQ_URL . 'lib/bxslider-4/jquery.bxslider.min.js', array( 'jquery' ), LOOKBOOQ_VERSION, true );
+		wp_register_script( 'lookbooq-fancybox', LOOKBOOQ_URL . 'lib/fancybox/source/jquery.fancybox.pack.js', array( 'jquery' ), LOOKBOOQ_VERSION, true );
 		wp_register_script( 'lookbooq', LOOKBOOQ_URL . 'assets/js/lookbooq.js', array( 'jquery' ), LOOKBOOQ_VERSION, true );
 	}
 	
 	function enqueue_scripts()
 	{
 		wp_enqueue_script( 'lookbooq-bxslider' );
+		wp_enqueue_script( 'lookbooq-fancybox' );
 		wp_enqueue_script( 'lookbooq' );
 		
 		self::localize_scripts();

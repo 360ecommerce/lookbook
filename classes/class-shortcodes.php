@@ -59,7 +59,7 @@ class Lookbooq_Shortcodes
 			<div class="piqture js-piqture">
 				<?php $pointers = get_post_meta( $piqture->ID, '_pointers', true ); ?>
 				<div class="sqreen">
-					<div class="pointers">	
+					<a class="pointers js-lookbooq-fancybox" href="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $piqture->ID ) ) ?>" rel="lookbooq">
 						<?php if( ! empty( $pointers ) ) : ?>
 							<?php foreach( $pointers as $i => $pointer ) : ?>
 								<?php
@@ -79,7 +79,7 @@ class Lookbooq_Shortcodes
 								</div>
 							<?php endforeach; ?>
 						<?php endif; ?>
-					</div>
+					</a>
 					<?php echo get_the_post_thumbnail( $piqture->ID, 'full', array( 'class' => 'piqture-img' ) ); ?>
 					<div class="piqture-caption hide-mobile">
 						<h3 class="caption-title"><?php echo get_the_title( $piqture->ID ); ?></h3>
