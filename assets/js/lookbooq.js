@@ -25,7 +25,7 @@ jQuery(document).ready(function($){
 	// Open tip/bullet
 	piqture.on('click', '.pointer-bullet', function(event){
 		var that 		= $(this),
-			container 	= $(this).closest('.pointers')
+			container 	= $(this).closest('.sqreen')
 			pointer 	= that.closest('.pointer'),
 			tip 		= pointer.find('.tip'),
 			arrow 		= pointer.find('.tip-arrow');
