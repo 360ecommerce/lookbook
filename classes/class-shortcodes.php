@@ -83,7 +83,7 @@ class Lookbooq_Shortcodes
 					<!-- /.pointers -->
 
 					<?php $image = wp_get_attachment_url( get_post_thumbnail_id( $piqture->ID ) ); ?>
-					<img src="<?php echo $image ?>" href="<?php echo $image ?>" class="piqture-img lookbooq-fancybox js-lookbooq-fancybox" rel="lookbooq">
+					<a href="<?php echo $image ?>" class="lookbooq-fancybox js-lookbooq-fancybox" rel="lookbooq"><img src="<?php echo $image ?>" class="piqture-img"></a>
 					<div class="piqture-caption hide-mobile">
 						<h3 class="caption-title"><?php echo get_the_title( $piqture->ID ); ?></h3>
 						<div class="caption-content"><?php echo apply_filters( 'the_content', $piqture->post_content ); ?></div>
@@ -93,23 +93,23 @@ class Lookbooq_Shortcodes
 					<h3 class="caption-title"><?php echo get_the_title( $piqture->ID ); ?></h3>
 					<div class="caption-content"><?php echo apply_filters( 'the_content', $piqture->post_content ); ?></div>
 					<div class="pointers-list show-mobile">
-					<ul>
-						<?php if( ! empty( $pointers ) ) : ?>
-							<?php foreach( $pointers as $i => $pointer ) : ?>
-								<?php
-									$title 			= @$pointer['_title'];
-									$description 	= @$pointer['_description'];
-									$link 			= @$pointer['_link'];
-									$i++;
-								?>
-								<li>
-									<div class="pointer-left"><div class="pointer-bullet"><span><?php echo $i; ?></span></div></div>
-									<div class="pointer-right"><h4 class="pointer-title"><?php echo $title; ?></h4></div>
-								</li>
-							<?php endforeach; ?>
-						<?php endif; ?>
-					</ul>
-				</div>
+						<ul>
+							<?php if( ! empty( $pointers ) ) : ?>
+								<?php foreach( $pointers as $i => $pointer ) : ?>
+									<?php
+										$title 			= @$pointer['_title'];
+										$description 	= @$pointer['_description'];
+										$link 			= @$pointer['_link'];
+										$i++;
+									?>
+									<li>
+										<div class="pointer-left"><div class="pointer-bullet"><span><?php echo $i; ?></span></div></div>
+										<div class="pointer-right"><h4 class="pointer-title"><?php echo $title; ?></h4></div>
+									</li>
+								<?php endforeach; ?>
+							<?php endif; ?>
+						</ul>
+					</div>
 				</div>
 			</div>
 		<?php endif; ?>
