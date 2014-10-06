@@ -59,28 +59,31 @@ class Lookbooq_Shortcodes
 			<div class="piqture js-piqture">
 				<?php $pointers = get_post_meta( $piqture->ID, '_pointers', true ); ?>
 				<div class="sqreen">
-					<a class="pointers js-lookbooq-fancybox" href="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $piqture->ID ) ) ?>" rel="lookbooq">
-						<?php if( ! empty( $pointers ) ) : ?>
-							<?php foreach( $pointers as $i => $pointer ) : ?>
-								<?php
-									$left 			= @$pointer['_left'] . '%';
-									$top 			= @$pointer['_top'] . '%';
-									$title 			= @$pointer['_title'];
-									$description 	= @$pointer['_description'];
-									$link 			= @$pointer['_link'];
-									$i++;
-								?>
-								<div class="pointer" style="left: <?php echo $left; ?>; top: <?php echo $top; ?>">
-									<div class="pointer-bullet"><span><?php echo $i; ?></span></div>
-									<div class="tip">
-										<div class="tip-arrow arrow-up"></div>
-										<div class="tip-content"><?php echo $description; ?></div>
-									</div>
+
+					<!-- .pointers -->
+					<?php if( ! empty( $pointers ) ) : ?>
+						<?php foreach( $pointers as $i => $pointer ) : ?>
+							<?php
+								$left 			= @$pointer['_left'] . '%';
+								$top 			= @$pointer['_top'] . '%';
+								$title 			= @$pointer['_title'];
+								$description 	= @$pointer['_description'];
+								$link 			= @$pointer['_link'];
+								$i++;
+							?>
+							<div class="pointer" style="left: <?php echo $left; ?>; top: <?php echo $top; ?>">
+								<div class="pointer-bullet"><span><?php echo $i; ?></span></div>
+								<div class="tip">
+									<div class="tip-arrow arrow-up"></div>
+									<div class="tip-content"><?php echo $description; ?></div>
 								</div>
-							<?php endforeach; ?>
-						<?php endif; ?>
-					</a>
-					<?php echo get_the_post_thumbnail( $piqture->ID, 'full', array( 'class' => 'piqture-img' ) ); ?>
+							</div>
+						<?php endforeach; ?>
+					<?php endif; ?>
+					<!-- /.pointers -->
+
+					<?php $image = wp_get_attachment_url( get_post_thumbnail_id( $piqture->ID ) ); ?>
+					<a href="<?php echo $image ?>" class="lookbooq-fancybox js-lookbooq-fancybox" rel="lookbooq"><img src="<?php echo $image ?>" class="piqture-img"></a>
 					<div class="piqture-caption hide-mobile">
 						<h3 class="caption-title"><?php echo get_the_title( $piqture->ID ); ?></h3>
 						<div class="caption-content"><?php echo apply_filters( 'the_content', $piqture->post_content ); ?></div>
@@ -90,23 +93,23 @@ class Lookbooq_Shortcodes
 					<h3 class="caption-title"><?php echo get_the_title( $piqture->ID ); ?></h3>
 					<div class="caption-content"><?php echo apply_filters( 'the_content', $piqture->post_content ); ?></div>
 					<div class="pointers-list show-mobile">
-					<ul>
-						<?php if( ! empty( $pointers ) ) : ?>
-							<?php foreach( $pointers as $i => $pointer ) : ?>
-								<?php
-									$title 			= @$pointer['_title'];
-									$description 	= @$pointer['_description'];
-									$link 			= @$pointer['_link'];
-									$i++;
-								?>
-								<li>
-									<div class="pointer-left"><div class="pointer-bullet"><span><?php echo $i; ?></span></div></div>
-									<div class="pointer-right"><h4 class="pointer-title"><?php echo $title; ?></h4></div>
-								</li>
-							<?php endforeach; ?>
-						<?php endif; ?>
-					</ul>
-				</div>
+						<ul>
+							<?php if( ! empty( $pointers ) ) : ?>
+								<?php foreach( $pointers as $i => $pointer ) : ?>
+									<?php
+										$title 			= @$pointer['_title'];
+										$description 	= @$pointer['_description'];
+										$link 			= @$pointer['_link'];
+										$i++;
+									?>
+									<li>
+										<div class="pointer-left"><div class="pointer-bullet"><span><?php echo $i; ?></span></div></div>
+										<div class="pointer-right"><h4 class="pointer-title"><?php echo $title; ?></h4></div>
+									</li>
+								<?php endforeach; ?>
+							<?php endif; ?>
+						</ul>
+					</div>
 				</div>
 			</div>
 		<?php endif; ?>

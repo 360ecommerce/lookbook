@@ -10,7 +10,7 @@
 
 	.sqreen{ position: relative; }
 	.pointers{ position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 3; }
-	.pointer{ position: absolute; }
+	.pointer{ position: absolute; z-index: 3; }
 	.pointer-bullet{ cursor: pointer; background: #005271; border-radius: 50%; width: 30px; height: 30px; color: #fff; text-align: center; line-height: 30px; font-weight: bold; font-size: 15px; }
 
 	.pointers-list{
@@ -35,6 +35,7 @@
 @media (min-width: 768px) 
 {
 	.piqture{
+		.lookbooq-fancybox{ cursor: pointer; display: block; position: relative; }
 		.piqture-caption{ position: absolute; bottom: 0; z-index: 2; padding: 15px; background: rgba(255,255,255,0.6); }
 		.pointer-bullet{ width: 40px; height: 40px; line-height: 40px; font-size: 18px; }
 		.tip{ display: block; }

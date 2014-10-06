@@ -11,21 +11,12 @@ jQuery(document).ready(function($){
 	});
 
 	// Fancybox
-	piqture.on('click', '.js-lookbooq-fancybox', function(event){
-		if( event.target === this ) {
-			var slides = $('.js-lookbooq-fancybox');
-				slides = slides.map(function(){ return $(this).attr('href') });
-
-			$.fancybox(slides);
-		}
-
-		event.preventDefault();
-	});
+	$('.js-lookbooq-fancybox').fancybox();
 
 	// Open tip/bullet
 	piqture.on('click', '.pointer-bullet', function(event){
 		var that 		= $(this),
-			container 	= $(this).closest('.pointers')
+			container 	= $(this).closest('.sqreen')
 			pointer 	= that.closest('.pointer'),
 			tip 		= pointer.find('.tip'),
 			arrow 		= pointer.find('.tip-arrow');

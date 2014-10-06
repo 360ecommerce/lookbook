@@ -32,6 +32,7 @@
 }
 .piqture .pointer {
   position: absolute;
+  z-index: 3;
 }
 .piqture .pointer-bullet {
   cursor: pointer;
@@ -119,6 +120,11 @@
   border-right: 10px solid rgba(255, 255, 255, 0.7);
 }
 @media (min-width: 768px) {
+  .piqture .lookbooq-fancybox {
+    cursor: pointer;
+    display: block;
+    position: relative;
+  }
   .piqture .piqture-caption {
     position: absolute;
     bottom: 0;
