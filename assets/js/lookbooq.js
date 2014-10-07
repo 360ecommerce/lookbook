@@ -11,7 +11,7 @@ jQuery(document).ready(function($){
 	});
 
 	// Fancybox
-	$('.js-lookbooq-fancybox').fancybox();
+	$('.js-lookbooq-fancybox:not(.bx-clone .js-lookbooq-fancybox)').fancybox();
 
 	// Open tip/bullet
 	piqture.on('click', '.pointer-bullet', function(event){
