@@ -3,7 +3,7 @@
     "version": "0.1",
     "private": "true",
     "dependencies": {
-    	"fancybox":       	"latest",
-    	"bxslider-4":       "latest"
+    	"fancybox":  	"latest",
+    	"bxslider-4": 	"latest"
     },
 }
