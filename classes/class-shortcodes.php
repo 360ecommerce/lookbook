@@ -104,7 +104,10 @@ class Lookbooq_Shortcodes
 									?>
 									<li>
 										<div class="pointer-left"><div class="pointer-bullet"><span><?php echo $i; ?></span></div></div>
-										<div class="pointer-right"><h4 class="pointer-title"><?php echo $title; ?></h4></div>
+										<div class="pointer-right">
+											<h4 class="pointer-title"><?php echo $title; ?></h4>
+											<p class="pointer-description"><?php echo $description; ?></p>
+										</div>
 									</li>
 								<?php endforeach; ?>
 							<?php endif; ?>
